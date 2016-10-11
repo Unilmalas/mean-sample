@@ -1,0 +1,21 @@
+<div class="page-header">
+	<h3> Whatever
+		<span> {{ post.body }} {{postid}} </span>
+	</h3>
+</div>
+<form role='form'>
+  <div class='form-group'>
+    <div class="input-group">
+      <input ng-model="commentBody" class='form-control'>
+      <span class='input-group-btn'>
+        <button ng-click='addComment()' class='btn btn-default'>Add Comment</button>
+      </span>
+    </div>
+  </div>
+</form>
+<ul class='list-group'>
+  <li ng-repeat="comment in comments | orderBy:'-upvotes'" class='list-group-item'>
+    <strong>{{comment.upvotes}} - @{{comment._user.username}}</strong>
+    <span>{{comment.body}}</span>
+  </li>
+</ul>
