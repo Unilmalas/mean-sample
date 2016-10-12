@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) { // post endpoint: note namespace (.
 	.exec(function (err, user) {
 		if (err) { return next(err); }
 			comment._user = user._id; // set the post user_id
-			post.save(function (err, comment) {
+			comment.save(function (err, comment) {
 				if (err) { return next(err); }
 				res.status(201).json(comment);
 		});
