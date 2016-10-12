@@ -5,7 +5,8 @@ angular.module('app')
   $scope.addComment = function () {
     if ($scope.commentBody && $scope.isAuth) { // commentBody from: input ng-model='commentBody' in template comments.html
       CommentsSvc.create({
-        body:		$scope.commentBody
+        body:		$scope.commentBody,
+		postid:		$routeParams.postid
       })
       .success(function (comment) {
         $scope.comments.unshift(comment);
