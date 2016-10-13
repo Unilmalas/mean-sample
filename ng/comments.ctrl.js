@@ -1,6 +1,10 @@
 // Comments controller
 angular.module('app')
 .controller('CommentsCtrl', ['$scope', '$routeParams', 'CommentsSvc', function ($scope, $routeParams, CommentsSvc) { // $routeParams have to be injected into controller
+// order matters here: .controller(ctrl_name, [scope, rtparams, svc_name, function (scope, rtparams, svc_name) {}]), function params in the same order
+
+  //$scope.postbody = $routeParams.postbody;
+  //$scope.postid = $routeParams.postid;
 
   $scope.addComment = function () {
     if ($scope.commentBody && $scope.isAuth) { // commentBody from: input ng-model='commentBody' in template comments.html
