@@ -15,7 +15,10 @@
 </form>
 <ul class='list-group'>
   <li ng-repeat="comment in comments | orderBy:'-upvotes'" class='list-group-item'>
-    <strong>{{comment.upvotes}} - @{{comment._user.username}}</strong>
+    <span class="glyphicon glyphicon-thumbs-up" ng-click="upvote(comment)"></span>
+		{{comment.upvotes}} 
+    <span class="glyphicon glyphicon-thumbs-down" ng-click="downvote(comment)"></span>
+    <strong>@{{comment._user.username}}</strong>
     <span>{{comment.body}}</span>
   </li>
 </ul>

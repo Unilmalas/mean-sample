@@ -31,4 +31,22 @@ router.post('/', function (req, res, next) { // post endpoint: note namespace (.
 	});
 });
 
+// post endpoint for upvote
+router.put('/:upvote', function (req, res, next) { // Use PUT when you can update a resource completely through a specific resource.
+	Comment.findOneAndUpdate({ _id: req.body._id }, { $inc: { upvotes: 1 }})
+		.exec( function (err, comment) {
+			if (err) { return next(err); }
+			res.status(202).json(comment); // http 201 = created
+		});
+});
+
+// post endpoint for downvote
+router.put('/:downvote', function (req, res, next) { // Use PUT when you can update a resource completely through a specific resource.
+	Comment.findOneAndUpdate({ _id: req.body._id }, { $inc: { upvotes:-1 }})
+		.exec( function (err, comment) {
+			if (err) { return next(err); }
+			res.status(202).json(comment); // http 201 = created
+		});
+});
+
 module.exports = router;
