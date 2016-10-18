@@ -1,6 +1,8 @@
 // API for posts
 var Post = require('../../models/post');
 var User   = require('../../models/user');
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
 var router = require('express').Router();
 
 router.get('/', function (req, res, next) { // get endpoint: note namespace (.use in server.js)
@@ -27,5 +29,18 @@ router.post('/', function (req, res, next) { // post endpoint: note namespace (.
 		});
 	});
 });
+
+/*router.post('/fileUpload', function (req, res, next) { // post endpoint for file upload: note namespace (.use in server.js)
+	//for(i in req)
+		console.log('file upload router post: ' + JSON.stringify(req.files));
+	console.dir(req.files);
+	res.status(201).json();
+});*/
+
+router.route('/fileUpload')
+	.post(upload.single("ulfile"), function (req, res, next) { /* replace foo-bar with your form field-name */
+		console.log('file upload router post: ' + req.files);
+		res.status(201).json();
+})
 
 module.exports = router;
