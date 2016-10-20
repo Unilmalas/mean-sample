@@ -15,7 +15,8 @@ router.get('/', function (req, res, next) { // get endpoint: note namespace (.us
 });
 
 router.post('/', function (req, res, next) { // post endpoint: note namespace (.use in server.js)
-	var post = new Post({body:     req.body.body});
+	var post = new Post({	body:     	req.body.body,
+							img:		req.body.img});
 	//post.username = req.auth.username;
 	User.findOne({ username: req.auth.username }) // find user
 	.exec(function (err, user) {
@@ -23,6 +24,7 @@ router.post('/', function (req, res, next) { // post endpoint: note namespace (.
 		post._user = user._id; // set the post user_id
 		post.save(function (err, post) {
 			if (err) { return next(err); }
+			//console.log(post.img);
 			res.status(201).json(post);
 		});
 	});

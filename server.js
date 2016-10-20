@@ -3,7 +3,8 @@ var bodyParser = require('body-parser');
 //var logger     = require('morgan');
 
 var app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'})); // to prevent request entity too large error
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true})); // to prevent request entity too large error
 app.use(require('./auth')); // use the middleware
 //app.use(logger('dev'))
 //app.use(require('./controllers'));
