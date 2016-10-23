@@ -8,6 +8,7 @@ var Post = db.model('Post', {
 	//username: { type: String, required: true },
 	body:	{ type: String, required: true },
 	date:	{ type: Date,   required: true, default: Date.now },
+	link:	{ type: String, required: false },
 	img: 	{ data: Buffer, contentType: String } // image data buffer, cleaner: check Mongo GridFS
 });
 

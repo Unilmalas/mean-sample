@@ -6,7 +6,8 @@ angular.module('app')
     if ($scope.postBody && $scope.isAuth) { // postBody from: input ng-model='postBody' in template posts.html
       PostsSvc.create({
         //username: 'bernie',
-        body:     $scope.postBody
+        body:     $scope.postBody,
+		link:	  $scope.postLink
       })
       .success(function (post) {
         $scope.posts.unshift(post);

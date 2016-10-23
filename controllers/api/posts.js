@@ -16,6 +16,7 @@ router.get('/', function (req, res, next) { // get endpoint: note namespace (.us
 
 router.post('/', function (req, res, next) { // post endpoint: note namespace (.use in server.js)
 	var post = new Post({	body:     	req.body.body,
+							link:		req.body.link,
 							img:		req.body.img});
 	//post.username = req.auth.username;
 	User.findOne({ username: req.auth.username }) // find user
