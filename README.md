@@ -7,6 +7,9 @@ Building on the chapter 8 version from the book:
 - added logout (pg. 120)
 - foreign key for user (pg. 122)
 - comments for posts (new)
+- up-/downvotes for comments (new)
+- links (new)
+- prepared for file uploads (new)
 
 to run:
 - $ mongod &
@@ -17,6 +20,6 @@ mongoDB basics:
 - enter mongodb: $ mongo
 - list DBs: > show dbs
 - use DB: > use [db]
-- list collections: > db.getCollectionNames()
+- list collections: > db.getCollectionNames() or >show collections
 - remove docs in collection: > db.[collection].remove()
 - remove db: > db.dropDatabase()
